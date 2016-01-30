@@ -1,0 +1,18 @@
+Source: php-igbinary
+Section: php
+Priority: optional
+Maintainer: Guillaume Plessis <gui@dotdeb.org>
+Build-Depends: debhelper (>= 9),
+	       php7.0-dev,
+	       dh-php
+Standards-Version: 3.9.6
+Homepage: http://pecl.php.net/package/igbinary
+
+Package: php7.0-igbinary
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${php:Depends}
+Description: igbinary serializer for PHP
+ Igbinary is a drop in replacement for the standard php serializer. Instead of
+ time and space consuming textual representation, igbinary stores php data
+ structures in a compact binary form. Savings are significant when using
+ memcached or similar memory based storages for serialized data.

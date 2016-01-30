@@ -1,0 +1,5 @@
+php-igbinary (1.2.1-1~2b7c703-1~dotdeb+8.1) stable; urgency=medium
+
+  * Imported Upstream version 1.2.1-1~2b7c703
+
+ -- Guillaume Plessis <gui@dotdeb.org>  Fri, 29 Jan 2016 15:42:42 -0800
