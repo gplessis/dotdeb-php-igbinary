@@ -33,7 +33,7 @@ RUN mk-build-deps --install --tool 'apt-get -y' --remove /root/control && rm -f 
 ADD . /usr/src/builddir
 WORKDIR /usr/src/builddir
 
-RUN curl -Lo /usr/src/php-igbinary_1.2.1-1~2b7c703.orig.tar.gz  https://github.com/igbinary/igbinary7/archive/2b7c703f0b2ad30b15cd0d85bc6b9e40e7603b13.tar.gz
+RUN curl -Lo /usr/src/php-igbinary_1.2.1-2~332a3d7.orig.tar.gz https://github.com/igbinary/igbinary7/archive/332a3d7ca899531f063dab38608e69e0e18f62a2.tar.gz
 #RUN uscan --download-current-version
 RUN dpkg-buildpackage
 
