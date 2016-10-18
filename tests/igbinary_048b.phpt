@@ -1,5 +1,11 @@
 --TEST--
 Object test, __set not called for private attr in extended class
+--SKIPIF--
+<?php
+// http://php.net/manual/en/class.sessionhandlerinterface.php (PHP 5 >= 5.4.0)
+if (version_compare(phpversion(), "5.4.0", "<")) {
+    exit("skip php version less than 5.4.x");
+}
 --FILE--
 <?php
 

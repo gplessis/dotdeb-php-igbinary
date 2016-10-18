@@ -3,7 +3,7 @@ Check for igbinary presence
 --SKIPIF--
 <?php if (!extension_loaded("igbinary")) print "skip"; ?>
 --FILE--
-<?php 
+<?php
 echo "igbinary extension is available\n";
 /*
  * you can add regression tests for your extension here

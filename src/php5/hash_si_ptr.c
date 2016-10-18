@@ -10,7 +10,9 @@
 */
 
 #ifdef PHP_WIN32
-# include "ig_win32.h"
+# include "win32/php_stdint.h"
+#else
+# include <stdint.h>
 #endif
 
 #include <stdio.h>
@@ -24,13 +26,13 @@
 
 /* Function similar to zend_inline_hash_func. This is not identical. */
 inline static uint32_t inline_hash_of_address(zend_uintptr_t ptr) {
-	register uint32_t hash = Z_UL(5381);
+	register uint32_t hash = 5381;
 	/* Note: Hash the least significant bytes first - Those need to influence the final result as much as possible. */
 	hash = ((hash << 5) + hash) + (ptr & 0xff);
 	hash = ((hash << 5) + hash) + ((ptr >> 8) & 0xff);
 	hash = ((hash << 5) + hash) + ((ptr >> 16) & 0xff);
 	hash = ((hash << 5) + hash) + ((ptr >> 24) & 0xff);
-#if SIZEOF_ZEND_LONG == 8
+#if UINTPTR_MAX > UINT32_MAX
 	hash = ((hash << 5) + hash) + ((ptr >> 32) & 0xff);
 	hash = ((hash << 5) + hash) + ((ptr >> 40) & 0xff);
 	hash = ((hash << 5) + hash) + ((ptr >> 48) & 0xff);
@@ -134,6 +136,7 @@ inline static void hash_si_ptr_rehash(struct hash_si_ptr *h) {
 }
 /* }}} */
 /* {{{ hash_si_ptr_insert */
+/*
 int hash_si_ptr_insert(struct hash_si_ptr *h, const zend_uintptr_t key, uint32_t value) {
 	uint32_t hv;
 
@@ -155,8 +158,10 @@ int hash_si_ptr_insert(struct hash_si_ptr *h, const zend_uintptr_t key, uint32_t
 
 	return 0;
 }
+*/
 /* }}} */
 /* {{{ hash_si_ptr_find */
+/*
 int hash_si_ptr_find(struct hash_si_ptr *h, const zend_uintptr_t key, uint32_t *value) {
 	uint32_t hv;
 
@@ -169,6 +174,28 @@ int hash_si_ptr_find(struct hash_si_ptr *h, const zend_uintptr_t key, uint32_t *
 	} else {
 		*value = h->data[hv].value;
 		return 0;
+	}
+}
+*/
+/* }}} */
+/* {{{ hash_si_ptr_find_or_insert */
+size_t hash_si_ptr_find_or_insert(struct hash_si_ptr *h, const zend_uintptr_t key, uint32_t value) {
+	uint32_t hv;
+
+	hv = _hash_si_ptr_find(h, key);
+
+	if (h->data[hv].key == HASH_PTR_KEY_INVALID) {
+		h->data[hv].key = key;
+		h->data[hv].value = value;
+		h->used++;
+
+		/* The size increased, so check if we need to expand the map */
+		if (h->size / 4 * 3 < h->used) {
+			hash_si_ptr_rehash(h);
+		}
+		return SIZE_MAX;
+	} else {
+		return h->data[hv].value;
 	}
 }
 /* }}} */

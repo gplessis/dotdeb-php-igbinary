@@ -2,6 +2,7 @@
 Recursive objects
 --SKIPIF--
 --INI--
+error_reporting = E_NONE
 --FILE--
 <?php 
 if(!extension_loaded('igbinary')) {
@@ -10,13 +11,13 @@ if(!extension_loaded('igbinary')) {
 
 function test($type, $variable, $test) {
 	$serialized = igbinary_serialize($variable);
+	$unserialized = igbinary_unserialize($serialized);
 //	$serialized = serialize($variable);
 //	$unserialized = unserialize($serialized);
 
 	echo $type, "\n";
 	echo substr(bin2hex($serialized), 8), "\n";
 //	echo $serialized, "\n";
-	$unserialized = igbinary_unserialize($serialized);
 	echo $test || $unserialized == $variable ? 'OK' : 'ERROR';
 	echo "\n";
 }

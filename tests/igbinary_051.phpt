@@ -2,7 +2,7 @@
 Object test, __wakeup (With multiple references)
 --SKIPIF--
 --FILE--
-<?php 
+<?php
 if(!extension_loaded('igbinary')) {
 	dl('igbinary.' . PHP_SHLIB_SUFFIX);
 }
@@ -23,7 +23,7 @@ class Obj {
 
 function main() {
 	$o = new Obj(1, 2);
-	$variable = [&$o, &$o];
+	$variable = array(&$o, &$o);
 	$serialized = igbinary_serialize($variable);
 	$unserialized = igbinary_unserialize($serialized);
 

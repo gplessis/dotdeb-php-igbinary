@@ -20,11 +20,11 @@ class Obj {
 }
 
 function main() {
-	$array = ["roh"];  // array (not a reference, but should be copied on write)
+	$array = array("roh");  // array (not a reference, but should be copied on write)
 	$a = new Obj($array);
 	$b = new Obj($array);
 	$c = new Obj(null);
-	$variable = [$a, $b, $c];
+	$variable = array($a, $b, $c);
 	$serialized = igbinary_serialize($variable);
 	printf("%s\n", bin2hex($serialized));
 	$unserialized = igbinary_unserialize($serialized);

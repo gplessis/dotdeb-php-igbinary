@@ -2,7 +2,7 @@
 Object Serializable interface can be serialized in references
 --SKIPIF--
 --FILE--
-<?php 
+<?php
 if(!extension_loaded('igbinary')) {
 	dl('igbinary.' . PHP_SHLIB_SUFFIX);
 }
@@ -40,7 +40,7 @@ class Obj implements Serializable {
 function main() {
 	$a = new Obj(1, 0);
 	$b = new Obj(42, 43);
-	$variable = [&$a, &$a, $b];
+	$variable = array(&$a, &$a, $b);
 	$serialized = igbinary_serialize($variable);
 	printf("%s\n", bin2hex($serialized));
 	$unserialized = igbinary_unserialize($serialized);

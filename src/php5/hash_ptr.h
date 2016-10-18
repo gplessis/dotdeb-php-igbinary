@@ -67,7 +67,9 @@ void hash_si_ptr_deinit(struct hash_si_ptr *h);
  * @param value Value.
  * @return 0 on success, 1 or 2 else.
  */
+/*
 int hash_si_ptr_insert (struct hash_si_ptr *h, const zend_uintptr_t key, uint32_t value);
+*/
 
 /** Finds value from hash_si_ptr.
  * Value returned thru value param.
@@ -77,13 +79,26 @@ int hash_si_ptr_insert (struct hash_si_ptr *h, const zend_uintptr_t key, uint32_
  * @param[out] value Found value.
  * @return 0 if found, 1 if not.
  */
+/*
 int hash_si_ptr_find (struct hash_si_ptr *h, const zend_uintptr_t key, uint32_t * value);
+*/
 
 /** Returns size of hash_si_ptr.
  * @param h Pointer to hash_si_ptr struct.
  * @return Size of hash_si_ptr.
  */
 size_t hash_si_ptr_size (struct hash_si_ptr *h);
+
+/** 
+ * If the key does not exist, add a mapping from key to value and returns SIZE_MAX
+ * If the key does exist, return the corresponding value
+ * @param h Pointer to hash_si_ptr struct.
+ * @param key key to look up or add
+ * @param value value to insert if it doesn't already exist
+ *
+ * @return SIZE_MAX or old, unmodified key
+ */
+size_t hash_si_ptr_find_or_insert(struct hash_si_ptr *h, const zend_uintptr_t key, uint32_t value);
 
 /** Returns capacity of hash_si_ptr.
  * @param h Pointer to hash_si_ptr struct.
