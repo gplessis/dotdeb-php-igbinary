@@ -1,7 +1,7 @@
 igbinary
 ========
 
-[![Build Status](https://travis-ci.org/igbinary/igbinary7.svg?branch=master)](https://travis-ci.org/igbinary/igbinary7)
+[![Build Status](https://travis-ci.org/igbinary/igbinary.svg?branch=master)](https://travis-ci.org/igbinary/igbinary)
 
 Igbinary is a drop in replacement for the standard php serializer. Instead of
 time and space consuming textual representation, igbinary stores php data
@@ -107,6 +107,10 @@ cd modules
 ```
 
 Similar approach should work for APC.
+
+### Installing on Windows
+
+If you are a contributor to/packager of igbinary, see [WINDOWS.md](./WINDOWS.md)
 
 Bugs & Contributions
 --------------------

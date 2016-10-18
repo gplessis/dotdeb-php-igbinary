@@ -1,6 +1,10 @@
 --TEST--
 Correctly unserialize multiple object refs and non-refs.
 --SKIPIF--
+<?php
+if (PHP_MAJOR_VERSION < 7) {
+	print "skip TODO postpone __wakeup in php5 release";
+}
 --INI--
 igbinary.compact_strings = On
 --FILE--

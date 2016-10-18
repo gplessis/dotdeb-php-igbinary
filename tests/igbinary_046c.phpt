@@ -5,7 +5,7 @@ Correctly unserialize multiple array refs.
 igbinary.compact_strings = On
 --FILE--
 <?php
-$a = array([]);
+$a = array(array());
 $a[1] = &$a[0];
 $a[2] = &$a[1];
 $a[3] = &$a[2];

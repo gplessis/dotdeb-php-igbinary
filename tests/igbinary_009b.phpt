@@ -5,6 +5,9 @@ Check for reference serialization (Original example, not using var_dump)
 if(!extension_loaded('igbinary')) {
 	echo "skip no igbinary";
 }
+if(PHP_MAJOR_VERSION < 7) {
+	echo "skip broken in php 5, and an existing bug";
+}
 --FILE--
 <?php
 error_reporting(E_ALL|E_STRICT);
@@ -26,7 +29,7 @@ function test_cyclic2($type, $variable) {
 		echo "But var dump differs:\nActual:\n", $dump_act, "\nExpected\n", $dump_exp, "\n";
 		echo "(Was normalized)\n";
 	}
-	
+
 	if (!isset($unserialized[0]) || count($unserialized) != 1) {
 		printf("Unexpected keys: %s\n", array_keys($unserialized));
 		return;

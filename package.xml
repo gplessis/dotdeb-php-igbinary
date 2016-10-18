@@ -25,33 +25,43 @@
   <email>teddy.pecl@luuseri.com</email>
   <active>yes</active>
  </lead>
- <date>2014-08-29</date>
- <time>09:00:00</time>
+ <date>2016-07-29</date>
+ <time>22:00:00</time>
  <version>
-  <release>1.2.2-dev</release>
+  <release>1.3.0a1</release>
   <api>1.1.1</api>
  </version>
  <stability>
-  <release>stable</release>
+  <release>alpha</release>
   <api>stable</api>
  </stability>
  <license uri="https://github.com/igbinary/igbinary/blob/master/COPYING">New BSD</license>
  <notes>
-- Compatible with PHP 5.2 - 5.6
+- Compatible with PHP 5.2 - 7.0
  </notes>
  <contents>
   <dir name="/">
    <file name="config.m4" role="src" />
    <file name="config.w32" role="src" />
-   <file name="hash.h" role="src" />
-   <file name="hash_si.c" role="src" />
-   <file name="hash_ptr.h" role="src" />
-   <file name="hash_si_ptr.c" role="src" />
-   <file name="igbinary.c" role="src" />
    <file name="igbinary.h" role="src" />
    <file name="php_igbinary.h" role="src" />
-   <file name="ig_win32.h" role="src" />
-   <file name="apc_serializer.h" role="src" />
+   <file name="src/php5/hash.h" role="src" />
+   <file name="src/php5/hash_ptr.h" role="src" />
+   <file name="src/php5/hash_si.c" role="src" />
+   <file name="src/php5/hash_si_ptr.c" role="src" />
+   <file name="src/php5/igbinary.c" role="src" />
+   <file name="src/php5/igbinary.h" role="src" />
+   <file name="src/php5/php_igbinary.h" role="src" />
+   <file name="src/php5/ig_win32.h" role="src" />
+   <file name="src/php5/apc_serializer.h" role="src" />
+   <file name="src/php7/hash.h" role="src" />
+   <file name="src/php7/hash_ptr.h" role="src" />
+   <file name="src/php7/hash_si.c" role="src" />
+   <file name="src/php7/hash_si_ptr.c" role="src" />
+   <file name="src/php7/igbinary.c" role="src" />
+   <file name="src/php7/igbinary.h" role="src" />
+   <file name="src/php7/php_igbinary.h" role="src" />
+   <file name="src/php7/ig_win32.h" role="src" />
    <file name="igbinary.php" role="doc" />
    <file name="igbinary.php.ini" role="doc" />
    <file name="tags.sh" role="doc" />
@@ -72,6 +82,7 @@
     <file name="igbinary_007.phpt" role="test" />
     <file name="igbinary_008.phpt" role="test" />
     <file name="igbinary_009.phpt" role="test" />
+    <file name="igbinary_009b.phpt" role="test" />
     <file name="igbinary_010.phpt" role="test" />
     <file name="igbinary_012.phpt" role="test" />
     <file name="igbinary_013.phpt" role="test" />
@@ -106,8 +117,22 @@
     <file name="igbinary_045.phpt" role="test" />
     <file name="igbinary_045b.phpt" role="test" />
     <file name="igbinary_046.phpt" role="test" />
+    <file name="igbinary_046b.phpt" role="test" />
+    <file name="igbinary_046c.phpt" role="test" />
+    <file name="igbinary_046d.phpt" role="test" />
     <file name="igbinary_047.phpt" role="test" />
+    <file name="igbinary_048.phpt" role="test" />
+    <file name="igbinary_048b.phpt" role="test" />
+    <file name="igbinary_049.phpt" role="test" />
+    <file name="igbinary_049b.phpt" role="test" />
+    <file name="igbinary_050.phpt" role="test" />
+    <file name="igbinary_051.phpt" role="test" />
+    <file name="igbinary_052.phpt" role="test" />
+    <file name="igbinary_053.phpt" role="test" />
+    <file name="igbinary_054.phpt" role="test" />
+    <file name="igbinary_055.phpt" role="test" />
     <file name="igbinary_bug54662.phpt" role="test" />
+    <file name="igbinary_bug72134.phpt" role="test" />
     <file name="igbinary_unserialize_v1_compatible.phpt" role="test" />
    </dir>
   </dir>
@@ -125,6 +150,22 @@
  <providesextension>igbinary</providesextension>
  <extsrcrelease />
  <changelog>
+  <release>
+   <date>2016-07-29</date>
+   <time>23:00:00</time>
+   <version>
+    <release>1.3.0a1</release>
+    <api>1.1.1</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>stable</api>
+   </stability>
+   <license uri="https://github.com/igbinary/igbinary/blob/master/COPYING">New BSD</license>
+   <notes>
+- Compatible with PHP 5.2 - 7.0 (Adds php 7 support)
+   </notes>
+  </release>
   <release>
    <date>2014-08-29</date>
    <time>09:00:00</time>

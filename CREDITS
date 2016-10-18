@@ -8,6 +8,7 @@ Contributors
 * Kari Lavikka <kari.lavikka@sulake.com> (docs)
 * Pierre Joye (Windows support)
 * Mikko Koppanen (PECL and RPM spec files)
+* Tyson Andre <tysonandre775@hotmail.com> (PHP7 compatibility fixes)
 
 Other
 * Original hash functions - Bob Jenkins <bob_jenkins@burtleburtle.net>

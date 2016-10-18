@@ -6,7 +6,7 @@ if(!extension_loaded('igbinary')) {
 	echo "skip no igbinary";
 }
 --FILE--
-<?php 
+<?php
 
 function test($type, $variable, $normalize = false) {
 	// Canonicalize $variable
@@ -19,7 +19,7 @@ function test($type, $variable, $normalize = false) {
 
 	$serialize_act = serialize($unserialized);
 	$serialize_exp = serialize($variable);
-	
+
 	echo $type, "\n";
 	echo substr(bin2hex($serialized), 8), "\n";
 	echo $serialize_act === $serialize_exp ? 'OK' : 'ERROR', "\n";
@@ -37,7 +37,7 @@ function test($type, $variable, $normalize = false) {
 			echo "(Was normalized)\n";
 		}
 	}
-	
+
 	if ($serialize_act !== $serialize_exp) {
 		echo "But serialize differs:\nActual:\n", $serialize_act, "\nExpected:\n", $serialize_exp, "\n";
 	}
@@ -45,8 +45,8 @@ function test($type, $variable, $normalize = false) {
 
 $a = array('foo');
 
-test('array($a, $a)', [$a, $a]);
-test('array(&$a, &$a)', [&$a, &$a]);
+test('array($a, $a)', array($a, $a));
+test('array(&$a, &$a)', array(&$a, &$a));
 
 $a = array(null);
 $b = array(&$a);
