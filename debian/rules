@@ -19,6 +19,9 @@ override_dh_auto_configure: $(CONFIGURE_TARGETS)
 override_dh_auto_build: $(BUILD_TARGETS)
 override_dh_auto_install: $(INSTALL_TARGETS)
 
+override_dh_strip:
+	dh_strip --dbg-package=php7.0-igbinary-dbg
+
 override_dh_auto_clean: $(CLEAN_TARGETS)
 	-rm $(CONFIGURE_TARGETS) $(BUILD_TARGETS) $(INSTALL_TARGETS) $(CLEAN_TARGETS)
 
