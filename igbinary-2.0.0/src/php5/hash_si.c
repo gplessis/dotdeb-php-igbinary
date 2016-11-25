@@ -20,6 +20,8 @@
 #include "hash.h"
 #include "zend.h"
 
+#include "igbinary_macros.h"
+
 /* {{{ nextpow2 */
 /** Next power of 2.
  * @param n Integer.
