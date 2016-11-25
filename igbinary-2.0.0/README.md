@@ -29,7 +29,7 @@ Features
 - Data portability between platforms (32/64bit, endianess)
 - Tested on Linux amd64, Linux ARM, Mac OSX x86, HP-UX PA-RISC and NetBSD sparc64
 - Hooks up to APC opcode cache as a serialization handler (APC 3.1.7+)
-- Compatible with PHP 5.2 &ndash; 5.6
+- Compatible with PHP 5.2 &ndash; 5.6, 7.0
 
 Implementation details
 ----------------------
