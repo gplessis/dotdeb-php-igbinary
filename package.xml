@@ -25,19 +25,21 @@
   <email>teddy.pecl@luuseri.com</email>
   <active>yes</active>
  </lead>
- <date>2016-11-19</date>
- <time>12:34:30</time>
+ <date>2016-12-20</date>
+ <time>14:40:39</time>
  <version>
-  <release>2.0.0</release>
+  <release>2.0.1</release>
   <api>1.1.1</api>
  </version>
  <stability>
   <release>stable</release>
   <api>stable</api>
  </stability>
- <license uri="https://github.com/igbinary/igbinary/blob/master/COPYING">New BSD</license>
+ <license uri="https://github.com/igbinary/igbinary/blob/master/COPYING">BSD-3-Clause</license>
  <notes>
 - Compatible with PHP 5.2 - 7.0
+- Fixes bug in session decoder not calling __wakeup() in php 7.0+
+- (Enhancement) Reuses identical strings when unserializing objects and arrays in php 7.0+
  </notes>
  <contents>
   <dir name="/">
@@ -105,11 +107,12 @@
    <file md5sum="4bae7769f75803eba7bf0838e8ced9bd" name="tests/igbinary_058b.phpt" role="test" />
    <file md5sum="cd0a935bf7f5f9942af0caeabb937e73" name="tests/igbinary_059.phpt" role="test" />
    <file md5sum="bb4857e8e25290be4694f1e5a2947b0b" name="tests/igbinary_060.phpt" role="test" />
+   <file md5sum="8ce4d2d34a8c0ddba00e8a36e1b1d974" name="tests/igbinary_061.phpt" role="test" />
    <file md5sum="12a208a93d3ee1884490d21d8f54500a" name="tests/igbinary_bug54662.phpt" role="test" />
    <file md5sum="7468c0e2832d9fe6ba2498e1df39621f" name="tests/igbinary_bug72134.phpt" role="test" />
    <file md5sum="face9f1511fc9b22038a2e5d9c262b29" name="tests/igbinary_unserialize_v1_compatible.phpt" role="test" />
-   <file md5sum="278a83fbea7d9198dddb41f937a87725" name="config.m4" role="src" />
-   <file md5sum="6325576d1f9e01ef5e46823f6d7b88e1" name="config.w32" role="src" />
+   <file md5sum="24a36020ab32a2741f14d67ca0d691fc" name="config.m4" role="src" />
+   <file md5sum="cd11c608ba042365778402101cae93da" name="config.w32" role="src" />
    <file md5sum="46a6d86b23bd11d87b4c437447206358" name="igbinary.h" role="src" />
    <file md5sum="b05e7b20b239933cfab1bf488f9dd34c" name="php_igbinary.h" role="src" />
    <file md5sum="ec8e43c1bd5c523356d68d6690d760c0" name="src/php5/hash.h" role="src" />
@@ -117,7 +120,7 @@
    <file md5sum="c25ddf2d5aa39ddfe4eb40724567cbf1" name="src/php5/hash_si.c" role="src" />
    <file md5sum="60bcbcdca9bfa0946187dd775a9b848b" name="src/php5/hash_si_ptr.c" role="src" />
    <file md5sum="2a8066170e56a3f48ab5c800e6d62a59" name="src/php5/igbinary.c" role="src" />
-   <file md5sum="a8394c00892a8a2d91820f7b575f9814" name="src/php5/igbinary.h" role="src" />
+   <file md5sum="a31a033781198bdb43560c76b84d38c0" name="src/php5/igbinary.h" role="src" />
    <file md5sum="99556284aeb7646aea32bbc934ad582a" name="src/php5/igbinary_macros.h" role="src" />
    <file md5sum="b39bdb6695bd559bb9e4d8b4600cf3a1" name="src/php5/php_igbinary.h" role="src" />
    <file md5sum="3d0f255093d2005bbdd4a5f10523adbc" name="src/php5/ig_win32.h" role="src" />
@@ -126,8 +129,8 @@
    <file md5sum="585f20758b14aed3fc6f5670e532952a" name="src/php7/hash_ptr.h" role="src" />
    <file md5sum="fd5ecf8b7be4ff14349d547e6680a96c" name="src/php7/hash_si.c" role="src" />
    <file md5sum="077d3c9119b8677a4b61a395f13eae0d" name="src/php7/hash_si_ptr.c" role="src" />
-   <file md5sum="484f177c78a9869c041e76483fc47517" name="src/php7/igbinary.c" role="src" />
-   <file md5sum="db469e80c883d4de4a23d27e019cbb40" name="src/php7/igbinary.h" role="src" />
+   <file md5sum="f9177bb08241d63bc5726657264304ea" name="src/php7/igbinary.c" role="src" />
+   <file md5sum="a4178f7c1c98d3abc567dc744610bdce" name="src/php7/igbinary.h" role="src" />
    <file md5sum="a9cc693a3440b59573db3120a66937df" name="src/php7/php_igbinary.h" role="src" />
    <file md5sum="3d0f255093d2005bbdd4a5f10523adbc" name="src/php7/ig_win32.h" role="src" />
    <file md5sum="0876e1bfd187714fa2fb7f846c832e27" name="igbinary.php" role="doc" />
@@ -138,8 +141,8 @@
    <file md5sum="a5b2cf75be0fe4019f6c2d4c84a055ac" name="COPYING" role="doc" />
    <file md5sum="eff4aaa7d5b13003f763ae4f78a3bc63" name="CREDITS" role="doc" />
    <file md5sum="d41d8cd98f00b204e9800998ecf8427e" name="EXPERIMENTAL" role="doc" />
-   <file md5sum="598f68232d8f64b5bd376e7a2f5318be" name="README.md" role="doc" />
-   <file md5sum="77035a82d191fa741c2ba131175bff1d" name="NEWS" role="doc" />
+   <file md5sum="e81f83a1273f44371f754353f7e259d7" name="README.md" role="doc" />
+   <file md5sum="8c4d23bd2e2f890f60de291130e96c49" name="NEWS" role="doc" />
   </dir>
  </contents>
  <dependencies>
@@ -156,6 +159,24 @@
  <extsrcrelease />
  <changelog>
   <release>
+   <date>2016-11-19</date>
+   <time>16:00:00</time>
+   <version>
+    <release>2.0.1</release>
+    <api>1.1.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="https://github.com/igbinary/igbinary/blob/master/COPYING">BSD-3-Clause</license>
+   <notes>
+- Compatible with PHP 5.2 - 7.0
+- Fixes bug in session decoder not calling wakeup in php 7.0+
+- (Enhancement) Reuses identical strings when unserializing objects and arrays in php 7.0+
+   </notes>
+  </release>
+  <release>
    <date>2016-10-30</date>
    <time>16:00:00</time>
    <version>
@@ -166,7 +187,7 @@
     <release>stable</release>
     <api>stable</api>
    </stability>
-   <license uri="https://github.com/igbinary/igbinary/blob/master/COPYING">New BSD</license>
+   <license uri="https://github.com/igbinary/igbinary/blob/master/COPYING">BSD-3-Clause</license>
    <notes>
 - Compatible with PHP 5.2 - 7.0 (Adds PHP 7 support)
 - Serialization format is unchanged
@@ -188,7 +209,7 @@
     <release>stable</release>
     <api>stable</api>
    </stability>
-   <license uri="https://github.com/igbinary/igbinary/blob/master/COPYING">New BSD</license>
+   <license uri="https://github.com/igbinary/igbinary/blob/master/COPYING">BSD-3-Clause-3-Clause</license>
    <notes>
 - Compatible with PHP 5.2 - 5.6
    </notes>
@@ -204,7 +225,7 @@
     <release>stable</release>
     <api>stable</api>
    </stability>
-   <license uri="https://github.com/igbinary/igbinary/blob/master/COPYING">New BSD</license>
+   <license uri="https://github.com/igbinary/igbinary/blob/master/COPYING">BSD-3-Clause</license>
    <notes>
 - PECL bug #22614, igbinary_unserialize(FALSE) must return FALSE
 - PHP bug #54662, unserializing nested objects cause crash
@@ -222,7 +243,7 @@
     <release>stable</release>
     <api>stable</api>
    </stability>
-   <license uri="http://opensource.dynamoid.com/#license">New BSD</license>
+   <license uri="http://opensource.dynamoid.com/#license">BSD-3-Clause</license>
    <notes>
 - Initial PECL release
    </notes>

@@ -15,17 +15,16 @@
 # include <stdint.h>
 #endif
 
-/* Forward declarations. */
+/* Forward declarations */
 struct zval;
 
-/* Constants and constant macros */
+/* Constants / macro constants */
 /** Binary protocol version of igbinary. */
 #define IGBINARY_FORMAT_VERSION 0x00000002
 
-#define PHP_IGBINARY_VERSION "2.0.0"
+#define PHP_IGBINARY_VERSION "2.0.1"
 
 /* Macros */
-
 #ifdef PHP_WIN32
 #	if defined(IGBINARY_EXPORTS) || (!defined(COMPILE_DL_IGBINARY))
 #		define IGBINARY_API __declspec(dllexport)
@@ -75,6 +74,6 @@ IGBINARY_API int igbinary_serialize_ex(uint8_t **ret, size_t *ret_len, zval *z, 
  * @param[out] z Unserialized zval
  * @return 0 on success, 1 elsewhere.
  */
-IGBINARY_API int igbinary_unserialize(const uint8_t *buf, size_t buf_len, zval *z TSRMLS_DC);
+IGBINARY_API int igbinary_unserialize(const uint8_t *buf, size_t buf_len, zval **z TSRMLS_DC);
 
 #endif /* IGBINARY_H */

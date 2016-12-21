@@ -43,11 +43,11 @@ if test "$PHP_IGBINARY" != "no"; then
     apc_inc_path="$phpincludedir"
     AC_MSG_RESULT([APCU in $apc_inc_path])
     AC_DEFINE(HAVE_APCU_SUPPORT,1,[Whether to enable apcu support])
-  elif test -f "$phpincludedir/ext/apc/apc_serializer.h"; then
+  elif test "$subdir" == src/php5 && test -f "$phpincludedir/ext/apc/apc_serializer.h"; then
     apc_inc_path="$phpincludedir"
     AC_MSG_RESULT([APC in $apc_inc_path])
     AC_DEFINE(HAVE_APC_SUPPORT,1,[Whether to enable apc support])
-  elif test -f "${srcdir}/$subdir/apc_serializer.h"; then
+  elif test "$subdir" == src/php5 && test -f "${srcdir}/$subdir/apc_serializer.h"; then
     AC_MSG_RESULT([apc_serializer.h bundled])
     AC_DEFINE(HAVE_APC_SUPPORT,1,[Whether to enable apc support])
     AC_DEFINE(USE_BUNDLED_APC,1,[Whether to use bundled apc includes])
@@ -82,5 +82,6 @@ if test "$PHP_IGBINARY" != "no"; then
   PHP_INSTALL_HEADERS([ext/igbinary], [igbinary.h $subdir/igbinary.h php_igbinary.h $subdir/php_igbinary.h])
   PHP_NEW_EXTENSION(igbinary, $PHP_IGBINARY_SRC_FILES, $ext_shared,, $PHP_IGBINARY_CFLAGS)
   PHP_ADD_EXTENSION_DEP(igbinary, session, true)
+  PHP_ADD_BUILD_DIR($abs_builddir/$subdir, 1)
   PHP_SUBST(IGBINARY_SHARED_LIBADD)
 fi
