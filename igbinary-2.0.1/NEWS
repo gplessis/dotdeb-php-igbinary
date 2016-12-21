@@ -1,3 +1,9 @@
+2.0.1 2016-11-19
+========
+* Compatible with PHP 5.2 - 7.0
+* Fixes bug in session decoder not calling __wakeup() in php 7.0+
+* (Enhancement) Reuses identical strings when unserializing objects and arrays in php 7.0+
+
 2.0.0 2016-10-30
 ========
 * Compatible with PHP 5.2 - 7.0 (Adds PHP 7 support)
